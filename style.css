@@ -1,0 +1,199 @@
+:root {
+    --heading-color: hsl(234, 12%, 34%);
+    --subtitle-color: hsl(229, 6%, 66%);
+    --main-bg: hsl(0, 0%, 98%);
+    --card-1-outline: hsl(180, 62%, 55%);
+    --card-2-outline: hsl(0, 78%, 62%);
+    --card-3-outline: hsl(34, 97%, 64%);
+    --card-4-outline: hsl(212, 86%, 64%);
+
+    --ff: "Poppins";
+    --fw-heading: 200;
+    --fw-main: 400;
+    --fw-heading-span: 600;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    box-sizing: border-box;
+}
+  
+/* Set core root defaults */
+html, html:focus, html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: var(--ff), sans-serif;
+    font-weight: var(--fw-main);
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+}
+
+img {
+    height: 3em;
+    display: block;
+    margin-left: auto;
+    object-fit: contain;
+}
+
+h1, h2 {
+    color: var(--heading-color);
+}
+
+.subtitle {
+    color: var(--subtitle-color);
+}
+
+.container {
+    max-width: 70em;
+    width: 90%;
+    margin: 4em auto;
+}
+
+header {
+    text-align: center;
+    max-width: 35em;
+    width: 90%;
+    margin-inline: auto;
+    margin-bottom: 5em;
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: var(--fw-heading);
+    line-height: 1.2em;
+    padding-bottom: .5em;
+}
+
+h1 span {
+    display: block;
+    font-weight: var(--fw-heading-span);
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+.card-grid {
+    display: grid;
+}
+
+.card {
+    border-radius: 5px;
+    padding: 2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+}
+
+.card:hover p,.card:hover h2 {
+    color: var(--main-bg);
+}
+
+.card:nth-of-type(1) {
+    border-top: 3px solid var(--card-1-outline);
+}
+
+.card:nth-of-type(1):hover {
+    background-color: var(--card-1-outline);
+}
+
+.card:nth-of-type(2) {
+    border-top: 3px solid var(--card-2-outline);
+}
+
+.card:nth-of-type(2):hover {
+    background-color: var(--card-2-outline);
+}
+
+.card:nth-of-type(3) {
+    border-top: 3px solid var(--card-3-outline);
+}
+
+.card:nth-of-type(3):hover {
+    background-color: var(--card-3-outline);
+}
+
+.card:nth-of-type(4) {
+    border-top: 3px solid var(--card-4-outline);
+}
+
+.card:nth-of-type(4):hover {
+    background-color: var(--card-4-outline);
+}
+
+.card-image {
+    margin-top: 2em;
+    margin-left: auto;
+}
+
+.attribution { 
+    font-size: 1rem; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: var(--heading-color); 
+}
+
+@media (min-width: 800px) {
+    .card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2em 2em;
+        grid-template-areas: 
+        ". c2 ."
+        "c1 c2 c4"
+        "c1 c3 c4"
+        ". c3 .";
+    }
+
+    .card {
+        margin-bottom: 0;
+    }
+
+    .card:nth-of-type(1) {
+        grid-area: c1;
+    }
+    
+    .card:nth-of-type(2) {
+        grid-area: c2;
+    }
+    
+    .card:nth-of-type(3) {
+        grid-area: c3;
+    }
+    
+    .card:nth-of-type(4) {
+        grid-area: c4;
+    }
+}
